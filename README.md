@@ -16,7 +16,7 @@ Useful for collecting and visualizing indoor climate data using Prometheus + Gra
 ## Features
 
 * Exposes Sensibo measurements at `/metrics`  
-* Outputs Prometheus-formatted gauge metrics  
+* Outputs Prometheus-formatted gauge metrics and temperateu setpoint
 * Temperature (°C)  
 * Relative humidity (%)  
 * Configurable via environment variables  
@@ -46,6 +46,15 @@ You can provide them via shell, `.env`, Docker, or Docker Compose.
 
 ## Running Locally
 
+### To find IDs
+List of IDs and coresponding room name
+```bash
+curl -s -X GET "https://api.sensibo.com/v2/users/me/pods" \
+  -H "Authorization: Bearer $API_KEY" \
+  | jq -r '.result[] | "\(.id) \(.room.name)"'
+```
+
+### Run
 ```bash
 export API_KEY="your_api_key_here"
 export DEVICE_ID="your_device_id_here"
