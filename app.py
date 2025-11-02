@@ -5,7 +5,7 @@ from flask import Flask, Response
 
 app = Flask(__name__)
 
-API_KEY   = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
 DEVICE_ID = os.getenv("DEVICE_ID")
 
 CACHE_TTL = 10  # seconds
@@ -22,7 +22,10 @@ def fetch_measurements():
     if now - _cache["ts"] < CACHE_TTL and _cache["data"] is not None:
         return _cache["data"]
 
-    url = f"https://api.sensibo.com/v2/devices/{DEVICE_ID}/measurements?limit=1"
+    url = (
+    f"https://api.sensibo.com/v2/devices/"
+    f"{DEVICE_ID}/measurements?limit=1"
+    )
     headers = {"Authorization": f"Bearer {API_KEY}"}
 
     try:
@@ -61,11 +64,13 @@ def metrics():
     metrics = [
         "# HELP sensibo_temperature_celsius Current temperature in Celsius",
         "# TYPE sensibo_temperature_celsius gauge",
-        f"sensibo_temperature_celsius{{device=\"{DEVICE_ID}\"}} {data['temp']}",
+        f"sensibo_temperature_celsius{{device=\"{DEVICE_ID}\"}} "
+        f"{data['temp']}",
 
         "# HELP sensibo_humidity_relative Relative humidity in percent",
         "# TYPE sensibo_humidity_relative gauge",
-        f"sensibo_humidity_relative{{device=\"{DEVICE_ID}\"}} {data['humidity']}",
+        f"sensibo_humidity_relative{{device=\"{DEVICE_ID}\"}} "
+        f"{data['humidity']}",
     ]
 
     return Response("\n".join(metrics) + "\n", mimetype="text/plain")
