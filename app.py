@@ -40,7 +40,7 @@ def fetch_measurements():
         json_data = r.json()
         device_data = json_data["data"]
 
-        measurements = device_data["measurements"][0]
+        measurements = device_data.get("measurements", {})
         ac_state = device_data.get("acState", {})
         room_name = device_data.get("room", {}).get("name", "unknown")
 
