@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  sensibo-exporter:
+    image: sensibo-metrics:latest
+    container_name: sensibo-exporter
+    ports:
+      - "8000:8000"
+    environment:
+      API_KEY: "${API_KEY}"
+      DEVICE_ID: "${DEVICE_ID}"
+    restart: unless-stopped
