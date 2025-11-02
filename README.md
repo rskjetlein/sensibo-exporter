@@ -2,7 +2,7 @@
 [![CI](https://github.com/rskjetlein/sensibo-exporter/actions/workflows/ci.yml/badge.svg)](https://github.com/rskjetlein/sensibo-exporter/actions/workflows/ci.yml)
 [![Docker](https://github.com/rskjetlein/sensibo-exporter/actions/workflows/docker.yml/badge.svg)](https://github.com/rskjetlein/sensibo-exporter/actions/workflows/docker.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/OWNER/REPO.svg)](https://github.com/OWNER/REPO/commits/main)
+[![Last Commit](https://img.shields.io/github/last-commit/rskjetlein/sensibo-exporter.svg)](https://github.com/rskjetlein/sensibo-exporter/commits/main)
 
 
 # Sensibo Prometheus Exporter
