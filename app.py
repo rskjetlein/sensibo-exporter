@@ -27,7 +27,7 @@ def fetch_measurements():
         "?fields=measurements,acState,room"
     )
     headers = {"Authorization": f"Bearer {API_KEY}"}
-    
+
     try:
         r = requests.get(url, headers=headers, timeout=8)
     except Exception:
