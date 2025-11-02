@@ -66,13 +66,15 @@ http://localhost:8000/metrics
 
 ### Example metrics output
 ```prometheusexporter
-# HELP sensibo_temperature_celsius Current temperature in Celsius
+# HELP sensibo_temperature_celsius Current measured temperature (C)
 # TYPE sensibo_temperature_celsius gauge
-sensibo_temperature_celsius{device="DEVICE_ID"} 22.3
-
-# HELP sensibo_humidity_relative Relative humidity in percent
+sensibo_temperature_celsius{device="abc123",room="Living Room"} 22.4
+# HELP sensibo_humidity_relative Relative humidity (%)
 # TYPE sensibo_humidity_relative gauge
-sensibo_humidity_relative{device="DEVICE_ID"} 40.1
+sensibo_humidity_relative{device="abc123",room="Living Room"} 41.5
+# HELP sensibo_temperature_setpoint_celsius Temperature target (setpoint) (C)
+# TYPE sensibo_temperature_setpoint_celsius gauge
+sensibo_temperature_setpoint_celsius{device="abc123",room="Living Room"} 21
 ```
 
 ## Docker
