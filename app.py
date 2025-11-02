@@ -22,9 +22,12 @@ def fetch_measurements():
     if now - _cache["ts"] < CACHE_TTL and _cache["data"] is not None:
         return _cache["data"]
 
-    url = f"https://api.sensibo.com/v2/devices/{DEVICE_ID}?fields=measurements,acState,room"
+    url = (
+        f"https://api.sensibo.com/v2/devices/{DEVICE_ID}"
+        "?fields=measurements,acState,room"
+    )
     headers = {"Authorization": f"Bearer {API_KEY}"}
-
+    
     try:
         r = requests.get(url, headers=headers, timeout=8)
     except Exception:
