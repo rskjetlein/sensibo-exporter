@@ -38,7 +38,7 @@ def fetch_measurements():
 
     try:
         json_data = r.json()
-        device_data = json_data["data"]
+        device_data = json_data["result"]
 
         measurements = device_data.get("measurements", {})
         ac_state = device_data.get("acState", {})
