@@ -24,7 +24,7 @@ def fetch_measurements():
 
     url = (
         f"https://home.sensibo.com/api/v2/pods/{DEVICE_ID}"
-        "?apiKey={API_KEY}"
+        f"?apiKey={API_KEY}"
         "&fields=measurements,acState,room"
     )
 
