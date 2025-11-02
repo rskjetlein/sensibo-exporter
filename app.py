@@ -29,7 +29,7 @@ def fetch_measurements():
     )
 
     try:
-        r = requests.get(url, headers=headers, timeout=8)
+        r = requests.get(url, timeout=8)
     except Exception:
         return None
 
