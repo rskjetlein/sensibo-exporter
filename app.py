@@ -1,3 +1,5 @@
+# Simple exporter for metrics from Sensibo
+
 import os
 import time
 import requests
