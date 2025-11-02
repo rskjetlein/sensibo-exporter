@@ -23,7 +23,7 @@ def fetch_measurements():
         return _cache["data"]
 
     url = (
-        f"https://api.sensibo.com/v2/devices/{DEVICE_ID}"
+        f"https://home.sensibo.com/v2/devices/{DEVICE_ID}"
         "?fields=measurements,acState,room"
     )
     headers = {"Authorization": f"Bearer {API_KEY}"}
