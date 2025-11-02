@@ -41,9 +41,9 @@ def fetch_measurements():
         ac_state = device_data.get("acState", {})
         room_name = device_data.get("room", {}).get("name", "unknown")
 
-        temp      = measurements.get("temperature")
-        humidity  = measurements.get("humidity")
-        setpoint  = ac_state.get("targetTemperature")
+        temp = measurements.get("temperature")
+        humidity = measurements.get("humidity")
+        setpoint = ac_state.get("targetTemperature")
 
     except Exception:
         return None
@@ -80,7 +80,7 @@ def metrics():
         "# TYPE sensibo_humidity_relative gauge",
         f"sensibo_humidity_relative{{{labels}}} {data['humidity']}",
 
-        "# HELP sensibo_temperature_setpoint_celsius Temperature target (setpoint) in Celsius",
+        "# HELP sensibo_temperature_setpoint_celsius Temperature setpoint (C)",
         "# TYPE sensibo_temperature_setpoint_celsius gauge",
         f"sensibo_temperature_setpoint_celsius{{{labels}}} {data['setpoint']}",
     ]
