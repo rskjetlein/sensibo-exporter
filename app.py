@@ -24,9 +24,9 @@ def fetch_measurements():
 
     url = (
         f"https://home.sensibo.com/v2/devices/{DEVICE_ID}"
-        "?fields=measurements,acState,room"
+        "?apiKey={API_KEY}"
+        "&fields=measurements,acState,room"
     )
-    headers = {"Authorization": f"Bearer {API_KEY}"}
 
     try:
         r = requests.get(url, headers=headers, timeout=8)
